@@ -1,20 +1,34 @@
+import factories.*;
+import factories.ingredients.*;
+import factories.meals.Meal;
+
 import java.util.ArrayList;
 
 public class Seeder {
 
-    private ArrayList<Meal> meals = new ArrayList<> ();
+    private final ArrayList<Meal> meals = new ArrayList<> ();
 
-    private Meal getMealWithFriesAndSoda (Meal meal) {
-        meal.addSoda ();
-        meal.addFries ();
+    private void addFriesAndSoda (Meal meal) {
+        meal.addIngredient (new Soda());
+        meal.addIngredient (new Fries());
+    }
+
+    private Meal getMeal (MealFactory factory, boolean withFriesAndSoda) {
+
+        Meal meal = factory.createMeal ();
+
+        if (withFriesAndSoda) {
+            addFriesAndSoda (meal);
+        }
+
         return meal;
     }
 
     public Seeder () {
-        meals.add (new Hamburger ());
-        meals.add (getMealWithFriesAndSoda (new Hamburger ()));
-        meals.add (new Special ());
-        meals.add (getMealWithFriesAndSoda (new Special ()));
+        meals.add (getMeal (MealFactory.HAMBURGER_FACTORY, false));
+        meals.add (getMeal (MealFactory.HAMBURGER_FACTORY, true));
+        meals.add (getMeal (MealFactory.SPECIAL_FACTORY, false));
+        meals.add (getMeal (MealFactory.SPECIAL_FACTORY, true));
     }
 
     public ArrayList<Meal> getMeals () {

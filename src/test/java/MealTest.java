@@ -1,15 +1,17 @@
+import factories.MealFactory;
+import factories.ingredients.Fries;
+import factories.ingredients.Soda;
+import factories.meals.Meal;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import java.io.*;
-import java.nio.charset.StandardCharsets;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class MealTest {
 
     private static Seeder seeder;
-    private static ByteArrayOutputStream output;
 
     @BeforeAll
     public static void init () {
@@ -20,7 +22,7 @@ class MealTest {
 
         // We leiden de output van System.out.println om naar een String, omdat we niet de output naar het scherm
         // testen.
-        output = new ByteArrayOutputStream ();
+        ByteArrayOutputStream output = new ByteArrayOutputStream ();
         System.setOut (new PrintStream (output));
     }
 
@@ -30,13 +32,13 @@ class MealTest {
      * op de juiste plekken in de naam.
      */
     public void testGetName () {
-        Meal meal = new Hamburger ();
+        Meal meal = MealFactory.HAMBURGER_FACTORY.createMeal ();
         assertEquals ("Broodje Hamburger", meal.getName ());
-        meal.addSoda ();
+        meal.addIngredient (new Soda());
         assertEquals ("Broodje Hamburger (met drinken)", meal.getName ());
-        meal.addFries ();
+        meal.addIngredient (new Fries());
         assertEquals ("Broodje Hamburger (met drinken en frites)", meal.getName ());
-        meal.addFries ();
+        meal.addIngredient (new Fries ());
         assertEquals ("Broodje Hamburger (met drinken, frites en frites)", meal.getName ());
     }
 
@@ -56,11 +58,9 @@ class MealTest {
 
         Meal meal = seeder.getMeal (1);
 
-        /*
-         * Scanner wordt niet ingelezen vanaf het toetsenbord, maar uit de String invoer. Voor een Hamburger met
-         * drinken en frites wordt gevraagd naar het drinken (de eerste string voor %n; Cola) en of er fritesaus bij de
-         * frites moet worden toegevoegd (j).
-         */
+        // Scanner wordt niet ingelezen vanaf het toetsenbord, maar uit de String invoer. Voor een Hamburger met
+        // drinken en frites wordt gevraagd naar het drinken (de eerste string voor %n; Cola) en of er fritessaus bij de
+        // frites moet worden toegevoegd (j).
         String invoer = String.format ("Cola%nj%n");
         ByteArrayInputStream in = new ByteArrayInputStream (invoer.getBytes ());
         System.setIn (in);

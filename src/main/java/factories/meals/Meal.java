@@ -1,3 +1,7 @@
+package factories.meals;
+
+import factories.ingredients.IIngredient;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -34,16 +38,8 @@ public abstract class Meal {
         return name + (ingredients.size () > 0 ? ")" : "");
     }
 
-    private void addIngredient (IIngredient ingredient) {
+    public void addIngredient (IIngredient ingredient) {
         ingredients.add (ingredient);
-    }
-
-    public void addSoda () {
-        addIngredient (new Soda ());
-    }
-
-    public void addFries () {
-        addIngredient (new Fries ());
     }
 
     public abstract String getOrderLine ();

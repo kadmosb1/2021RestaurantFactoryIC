@@ -1,3 +1,5 @@
+package factories.meals;
+
 import java.util.Scanner;
 
 public class Special extends Meal {

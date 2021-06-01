@@ -1,3 +1,5 @@
+package factories.meals;
+
 public class Hamburger extends Meal {
 
     public Hamburger () {
