@@ -1,6 +1,6 @@
-package factories.meals;
+package meals;
 
-import factories.ingredients.IIngredient;
+import ingredients.IIngredient;
 
 import java.util.ArrayList;
 import java.util.Scanner;

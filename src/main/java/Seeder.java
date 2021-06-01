@@ -1,6 +1,6 @@
 import factories.*;
-import factories.ingredients.*;
-import factories.meals.Meal;
+import ingredients.*;
+import meals.Meal;
 
 import java.util.ArrayList;
 

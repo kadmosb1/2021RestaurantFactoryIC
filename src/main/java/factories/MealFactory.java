@@ -1,8 +1,8 @@
 package factories;
 
-import factories.meals.HamburgerFactory;
-import factories.meals.Meal;
-import factories.meals.SpecialFactory;
+import meals.HamburgerFactory;
+import meals.Meal;
+import meals.SpecialFactory;
 
 public abstract class MealFactory {
 

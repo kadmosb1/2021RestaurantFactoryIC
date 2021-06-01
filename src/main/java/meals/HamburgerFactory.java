@@ -1,4 +1,4 @@
-package factories.meals;
+package meals;
 
 import factories.MealFactory;
 

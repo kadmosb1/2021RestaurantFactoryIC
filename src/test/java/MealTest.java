@@ -1,7 +1,7 @@
 import factories.MealFactory;
-import factories.ingredients.Fries;
-import factories.ingredients.Soda;
-import factories.meals.Meal;
+import ingredients.Fries;
+import ingredients.Soda;
+import meals.Meal;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 

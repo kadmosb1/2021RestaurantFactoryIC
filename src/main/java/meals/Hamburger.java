@@ -1,4 +1,4 @@
-package factories.meals;
+package meals;
 
 public class Hamburger extends Meal {
 

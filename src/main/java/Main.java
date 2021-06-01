@@ -1,4 +1,4 @@
-import factories.meals.Meal;
+import meals.Meal;
 
 import java.util.Scanner;
 

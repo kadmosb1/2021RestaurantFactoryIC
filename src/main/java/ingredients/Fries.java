@@ -1,4 +1,4 @@
-package factories.ingredients;
+package ingredients;
 
 import java.util.Scanner;
 
