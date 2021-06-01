@@ -1,6 +1,6 @@
 package meals;
 
-import factories.MealFactory;
+import abstractfactories.MealFactory;
 
 public class HamburgerFactory extends MealFactory {
 
