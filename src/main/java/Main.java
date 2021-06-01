@@ -1,3 +1,5 @@
+import meals.Meal;
+
 import java.util.Scanner;
 
 public class Main {
