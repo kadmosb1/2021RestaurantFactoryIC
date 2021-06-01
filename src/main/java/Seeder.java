@@ -1,5 +1,4 @@
-import factories.*;
-import ingredients.*;
+import abstractfactories.*;
 import meals.Meal;
 
 import java.util.ArrayList;
@@ -9,8 +8,8 @@ public class Seeder {
     private final ArrayList<Meal> meals = new ArrayList<> ();
 
     private void addFriesAndSoda (Meal meal) {
-        meal.addIngredient (new Soda());
-        meal.addIngredient (new Fries());
+        meal.addIngredient (IngredientFactory.SODA_FACTORY);
+        meal.addIngredient (IngredientFactory.FRIES_FACTORY);
     }
 
     private Meal getMeal (MealFactory factory, boolean withFriesAndSoda) {

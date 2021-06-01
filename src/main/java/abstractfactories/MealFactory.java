@@ -1,4 +1,4 @@
-package factories;
+package abstractfactories;
 
 import meals.HamburgerFactory;
 import meals.Meal;
