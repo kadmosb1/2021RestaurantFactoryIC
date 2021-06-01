@@ -1,3 +1,5 @@
+package ingredients;
+
 import java.util.Scanner;
 
 public interface IIngredient {
